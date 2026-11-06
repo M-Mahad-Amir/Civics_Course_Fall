@@ -1,0 +1,1 @@
+function t(key){return(I18N[state.lang]&&I18N[state.lang][key])||key}function setLang(lang){state.lang=lang;document.documentElement.lang=lang;document.documentElement.dir=lang==='ur'?'rtl':'ltr';saveState();render()}
