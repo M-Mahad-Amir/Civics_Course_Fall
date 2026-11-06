@@ -1,5 +1,10 @@
 /* All names and data below are fictional demo data. */
 const AREA={name:'Noor Colony, Block C',city:'Karachi'};
+const REGISTERED_MOHALLAS=[
+ {id:'noor-colony-c',name:AREA.name,city:AREA.city,committee:'Noor Colony Residents Committee'},
+ {id:'mohalla-2',name:'Mohalla 2 (edit me)',city:'',committee:''},
+ {id:'mohalla-3',name:'Mohalla 3 (edit me)',city:'',committee:''}
+];
 const CATEGORIES=[['roads','Roads','🛣️'],['safety','Safety','🛡️'],['water','Water','💧'],['sanitation','Sanitation','🗑️'],['electricity','Electricity','⚡'],['other','Other','•••']].map(([id,label,icon])=>({id,label,icon}));
 const AUTHORITIES={water:{name:'Water & Sewerage Corp',short:'Water'},roads:{name:'Roads Department (KMC)',short:'Roads'},electricity:{name:'Electric Utility',short:'Power'},police:{name:'Local Police Station',short:'Police'},sanitation:{name:'Solid Waste Management',short:'Waste'}};
 const ISSUES=[
