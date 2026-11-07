@@ -15,6 +15,7 @@ The functional brief, seed data, feature boundaries, and demo script are recorde
 | 2026-11-07 | Desktop-friendly conversion | Reworked the initial build into the current desktop-oriented dashboard UI, while retaining the original prototype features and seed data. |
 | 2026-11-07 | Asset consolidation | Merged the three CSS files (`tokens.css`, `base.css`, `components.css`) into `style.css` and the six JS modules (`data.js`, `state.js`, `i18n.js`, `ui.js`, `screens.js`, `router.js`) into `app.js`. The `css/` and `js/` directories were removed. `index.html` updated to reference only `style.css` and `app.js`. |
 | 2026-11-07 | Encoding fix | PowerShell's `Get-Content` read the UTF-8 source files using the system's Windows-1252 default code page, corrupting all multi-byte characters (emoji, Urdu text, special symbols) in `app.js`. Fixed by rewriting `app.js` directly with correct UTF-8 content. `node --check` and manual character inspection confirm all characters are now intact. |
+| 2026-11-07 | UI polish & bug fixes | (1) Removed the redundant 🔔 notification and "A" avatar icon buttons from the resident header. (2) Fixed the remaining encoding corruption in `style.css`: the `.status:before` bullet `●` was stored as `?`; replaced with the CSS hex escape `\25CF` which is encoding-safe. (3) Fixed "View community" button on Home to route to the Events tab (`communityTab='events'`) instead of defaulting to Polls. (4) Changed RSVP button label to "Available" for clearer communication; already-RSVP'd state remains "Going". |
 
 ## Initial Build baseline
 
