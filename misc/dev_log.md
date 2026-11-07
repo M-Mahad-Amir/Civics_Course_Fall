@@ -13,6 +13,8 @@ The functional brief, seed data, feature boundaries, and demo script are recorde
 | 2026-11-07 | Initial homework | The initial project context and presentation research were established. |
 | 2026-11-07 | Initial Build | Built the first working offline single-page prototype: vanilla HTML, CSS, and JavaScript; hash routing; hard-coded demo data; and `localStorage` state. The original interface used a mobile phone-frame layout. |
 | 2026-11-07 | Desktop-friendly conversion | Reworked the initial build into the current desktop-oriented dashboard UI, while retaining the original prototype features and seed data. |
+| 2026-11-07 | Asset consolidation | Merged the three CSS files (`tokens.css`, `base.css`, `components.css`) into `style.css` and the six JS modules (`data.js`, `state.js`, `i18n.js`, `ui.js`, `screens.js`, `router.js`) into `app.js`. The `css/` and `js/` directories were removed. `index.html` updated to reference only `style.css` and `app.js`. |
+| 2026-11-07 | Encoding fix | PowerShell's `Get-Content` read the UTF-8 source files using the system's Windows-1252 default code page, corrupting all multi-byte characters (emoji, Urdu text, special symbols) in `app.js`. Fixed by rewriting `app.js` directly with correct UTF-8 content. `node --check` and manual character inspection confirm all characters are now intact. |
 
 ## Initial Build baseline
 
@@ -31,15 +33,23 @@ The Initial Build established the following implementation decisions:
 | Path | Responsibility |
 | --- | --- |
 | `index.html` | Application shell, route sections, toast and modal containers, script loading |
-| `css/tokens.css` | Theme colour, radius, shadow, and spacing tokens |
-| `css/base.css` | Global reset, shell layout, type, and responsive/RTL rules |
-| `css/components.css` | Reusable UI components and screen-layout styling |
-| `js/data.js` | Seeded fictional demo content and translations |
-| `js/state.js` | Demo state loading, persistence, and reset |
-| `js/i18n.js` | English/Urdu labels and document direction switching |
-| `js/ui.js` | Shared UI helpers, toasts, modal handling, and issue-card helpers |
-| `js/screens.js` | Route-level rendering and feature interactions |
-| `js/router.js` | Hash-route resolution and active-screen rendering |
+| `css/tokens.css` | Theme colour, radius, shadow, and spacing tokens *(merged → `style.css`)* |
+| `css/base.css` | Global reset, shell layout, type, and responsive/RTL rules *(merged → `style.css`)* |
+| `css/components.css` | Reusable UI components and screen-layout styling *(merged → `style.css`)* |
+| `js/data.js` | Seeded fictional demo content and translations *(merged → `app.js`)* |
+| `js/state.js` | Demo state loading, persistence, and reset *(merged → `app.js`)* |
+| `js/i18n.js` | English/Urdu labels and document direction switching *(merged → `app.js`)* |
+| `js/ui.js` | Shared UI helpers, toasts, modal handling, and issue-card helpers *(merged → `app.js`)* |
+| `js/screens.js` | Route-level rendering and feature interactions *(merged → `app.js`)* |
+| `js/router.js` | Hash-route resolution and active-screen rendering *(merged → `app.js`)* |
+
+### Current file map (post-consolidation)
+
+| Path | Responsibility |
+| --- | --- |
+| `index.html` | Application shell, route sections, toast and modal containers, script loading |
+| `style.css` | All styles: tokens, reset/layout, and component rules |
+| `app.js` | All JavaScript: data, state, i18n, UI helpers, screens, and router |
 
 ## 2026-11-07 — Desktop SaaS-style conversion
 
